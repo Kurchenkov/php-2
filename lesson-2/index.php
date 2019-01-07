@@ -14,11 +14,17 @@
             $this->price = $price;
         }
         abstract protected function calculateTheCost();
+        public function show(){
+            echo $this->calculateTheCost();
+            echo '<br/>';
+        }
     }
 
     class digitalGoods extends Goods{
         public function __construct($price){
             parent:: __construct($price);
+            echo 'Digital goods sold for ';
+            $this->show();
         }
         public function calculateTheCost(){
             return $this->price / 2;
@@ -28,6 +34,8 @@
     class piecePhysicalGoods extends Goods{
         public function __construct($price){
             parent:: __construct($price);
+            echo 'Piece goods sold for ';
+            $this->show();
         }
         public function calculateTheCost(){
             return $this->price;
@@ -39,6 +47,8 @@
         public function __construct($price, $kg){
             parent:: __construct($price);
             $this->kg = $kg;
+            echo $this->getWeight().'kg of weight goods are sold for ';
+            $this->show();
         }
         public function getWeight(){
             return $this->kg;
@@ -48,10 +58,7 @@
         }
     }
 
-    $obj1 = new digitalGoods(50);
-    echo 'Digital goods sold for '.$obj1->calculateTheCost().'<br/>';
+    $obj1 = new digitalGoods(150);
     $obj2 = new piecePhysicalGoods(100);
-    echo 'Piece goods sold for '.$obj2->calculateTheCost().'<br/>';
     $obj3 = new weightGoods(50, 13);
-    echo $obj3->getWeight().'kg of weight goods are sold for '.$obj3->calculateTheCost();
 ?>
