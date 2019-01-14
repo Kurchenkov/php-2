@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <style>
+        .photo,
+        h2 {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Photo_{{photo}}</h2>
+    <div>
+        <a href="./">Back to album</a>
+    </div>
+    <div class="photo">
+        <img src="{{photo_path}}/{{photo}}" alt="photo">
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <style>
+        .container,
+        h2 {
+            width: 650px;
+            margin: 10% auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .small_photo {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>{{title}}</h2>
+    <div class="container">
+        {% for photo in photos %}
+        <div class="small_photo">
+            <a href="photo.php?photo={{photo}}">
+                        <img src={{path_to_photo_small}}/{{photo}} alt="photo_small">
+                    </a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
